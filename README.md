@@ -1,4 +1,4 @@
-# reactjs-pizza-menu
+# reactjs-step-component
 
 `this is a react-app and part of a react tutorial`
 
