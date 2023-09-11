@@ -10,6 +10,7 @@ const messages = [
 export default function App() {
     //**************** variables ****************//
     const [step, setStep] = useState(1);
+    const [isOpen, setIsOpen] = useState(true);
 
     //**************** functions ****************//
     function handlePrev() {
@@ -27,23 +28,30 @@ export default function App() {
     }
 
     return (
-        <main className="wrapper">
-            <div className='steps'>
-                <div className="numbers">
-                    <div className={step >= 1 ? "active" : ""}>1</div>
-                    <div className={step >= 2 ? "active" : ""}>2</div>
-                    <div className={step >= 3 ? "active" : ""}>3</div>
-                </div>
-                <p className='message'>Step {step}: {messages[step - 1]}</p>
-                <div className="buttons">
-                    <button style={{backgroundColor: "#18497A", color: "#FFF"}}
-                            onClick={handlePrev}>prev
-                    </button>
-                    <button style={{backgroundColor: "#18497A", color: "#FFF"}}
-                            onClick={handleNext}>next
-                    </button>
-                </div>
-            </div>
-        </main>
+        <>
+            <button className="close" onClick={() => setIsOpen((isOpen) => !isOpen)}>
+                &times;
+            </button>
+            { isOpen && (
+                <main className="wrapper">
+                    <div className='steps'>
+                        <div className="numbers">
+                            <div className={step >= 1 ? "active" : ""}>1</div>
+                            <div className={step >= 2 ? "active" : ""}>2</div>
+                            <div className={step >= 3 ? "active" : ""}>3</div>
+                        </div>
+                        <p className='message'>Step {step}: {messages[step - 1]}</p>
+                        <div className="buttons">
+                            <button style={{backgroundColor: "#18497A", color: "#FFF"}}
+                                    onClick={handlePrev}>prev
+                            </button>
+                            <button style={{backgroundColor: "#18497A", color: "#FFF"}}
+                                    onClick={handleNext}>next
+                            </button>
+                        </div>
+                    </div>
+                </main>
+            )}
+        </>
     );
 };
