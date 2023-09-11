@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
+/*import swal from 'sweetalert';*/
+
 
 const messages = [
     "Learn React ⚛️",
@@ -6,19 +8,40 @@ const messages = [
     "Invest your new income 🤑",
 ];
 export default function App() {
-    const step = 1;
+    //**************** variables ****************//
+    const [step, setStep] = useState(1);
+
+    //**************** functions ****************//
+    function handlePrev() {
+
+        if (step > 1) {
+            setStep((s) => s - 1);
+        }
+    }
+    function handleNext() {
+
+        if (step < 3) {
+            setStep((s) => s + 1);
+        }
+
+    }
+
     return (
         <main className="wrapper">
             <div className='steps'>
                 <div className="numbers">
-                    <div className={step === 1 ? "active" : ""}>1</div>
-                    <div className={step === 2 ? "active" : ""}>2</div>
-                    <div className={step === 3 ? "active" : ""}>3</div>
+                    <div className={step >= 1 ? "active" : ""}>1</div>
+                    <div className={step >= 2 ? "active" : ""}>2</div>
+                    <div className={step >= 3 ? "active" : ""}>3</div>
                 </div>
                 <p className='message'>Step {step}: {messages[step - 1]}</p>
                 <div className="buttons">
-                    <button style={{backgroundColor: "#18497A", color: "#FFF"}}>prev</button>
-                    <button style={{backgroundColor: "#18497A", color: "#FFF"}}>next</button>
+                    <button style={{backgroundColor: "#18497A", color: "#FFF"}}
+                            onClick={handlePrev}>prev
+                    </button>
+                    <button style={{backgroundColor: "#18497A", color: "#FFF"}}
+                            onClick={handleNext}>next
+                    </button>
                 </div>
             </div>
         </main>

@@ -107,7 +107,8 @@ body {
 }
 
 .numbers .active {
-    background-color: #7950f2;
+    /*background-color: #7950f2;*/
+    background-color: #18497A;
     color: #fff;
 }
 
@@ -163,4 +164,14 @@ h3 {
 
 .close:hover {
     color: #7950f2;
+}
+
+/*=============================================
+          swal-button
+================================================*/
+.swal-button {
+    background-color: #18497A;
+}
+.swal-button:not([disabled]):hover {
+    background-color: #87B4E0
 }
