@@ -10,3 +10,4 @@ First install node_modules folder
 Then to start app in browser at http://localhost:3000
 ### `npm start or yarn start`
 
+![reactjs-step-component](https://github.com/MAbdurahman/reactjs-step-component/assets/20928980/a1b35a28-1037-4e2a-8fca-ea18fb465791)
